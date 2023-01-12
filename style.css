@@ -9,7 +9,20 @@ body {
 
 form {
     width: 100%;
-    display:inline-block;
+    display: inline-block;
+}
+
+fieldset {
+    min-width: 100px;
+    width: 30%;
+    max-width: 800px;
+    margin:auto;
+}
+
+.fieldsettextfield {
+    min-width: 100px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .formtextfield {
