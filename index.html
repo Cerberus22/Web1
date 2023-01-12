@@ -5,17 +5,17 @@
     </head>
     <body>
         <h3>Log in:</h3>
-        <form method="post" target="_self">
+        <form action="" method="post" target="_blank">
             <label for="uid">User ID:</label><br>
             <input type="text" id="uid" name="uid"><br>
 
             <label for="pwd">Password:</label><br>
-            <input type="password" id="pwd" name="pwd"><br>
+            <input type="password" id="pwd" name="pwd"><br><br>
 
-            <input type="submit" value="Log in">
+            <input type="submit" value="Log in" onclick="window.location.href='/main.html'">
         </form>
 
         <h3>Sign up</h3>
-        <button onclick="window.location.href = '/signup.html'">Sign up here!</button>
+        <button onclick="window.location.href = '/signup.html';">Sign up here!</button>
     </body>
 </html>
