@@ -3,6 +3,14 @@ html {
     color: lightgrey;
 }
 
-a {
-    color: lightblue;
+body {
+    text-align: center;
+}
+
+form {
+    display:inline-block;
+}
+
+input {
+    
 }

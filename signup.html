@@ -4,31 +4,31 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <form action="mailto:yurianlagrand@gmail.com" target="_self" method="post">
+        <form method="post" target="_blank">
         <form>
             <label for="uid">User ID:</label><br>
-            <input type="text" id="uid" name="uid"><br>
+            <input class="formtextfield" type="text" id="uid" name="uid"><br>
 
             <label for="pwd">Password:</label><br>
-            <input type="password" id="pwd" name="pwd"><br>
+            <input class="formtextfield" type="password" id="pwd" name="pwd"><br>
             
             <label for="name">Name:</label><br>
-            <input type="text" id="name" name="name"><br>
+            <inputclass="formtextfield"  type="text" id="name" name="name"><br>
             
             <fieldset >
                 <legend>Addres details</legend>
                 <label for="addr">Street & Number:</label><br>
-                <input type="text" id="addr" name="addr"><br>
+                <input class="formtextfield" type="text" id="addr" name="addr"><br>
 
                 <label for="country">Country:</label><br>
-                <input type="text" id="country" name="country"><br>
+                <input class="formtextfield" type="text" id="country" name="country"><br>
 
                 <label for="zip">ZIP code:</label><br>
-                <input type="text" id="zip" name="zip"><br>
+                <input class="formtextfield" type="text" id="zip" name="zip"><br>
             </fieldset>
 
             <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email"><br>
+            <input class="formtextfield" type="text" id="email" name="email"><br>
 
             <label for="sex">Sex:</label><br>
             <select id="sex" name="sex">
@@ -38,12 +38,12 @@
             </select><br>
                 
             <label for="lang">Language:</label><br>
-            <input type="text" id="lang" name="lang"><br>
+            <input class="formtextfield" type="text" id="lang" name="lang"><br>
 
             <label for="bio">Bio:</label><br>
             <textarea type="text" id="bio" name="bio"></textarea><br><br>
-            <input type="submit" value="Sign Up">
+            <input type="submit" value="Sign Up" onclick="window.location.href='./main.html';">
         </form>
-        <button onclick="window.location.href='/index.html'">Back</button>
+        <button onclick="window.location.href='/index.html';">Back</button>
     </body>
 </html>
