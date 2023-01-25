@@ -8,7 +8,7 @@
     </head>
     <body class="centered">
         <header><h1>Goals!</h1></header>
-        <form method="post" id="signinForm" onsubmit="return formValidation();">
+        <form method="post" id="signinForm">
             <label for="uid">Username:</label><br>
             <input class="formtextfield" type="text" id="uid" name="uid"><br>
 
@@ -47,7 +47,7 @@
             <textarea type="text" id="bio" name="bio"></textarea><br><br>
 
             <button onclick="window.location.href='./index.html';">Back</button>
-            <input class="button" type="submit" value="Sign Up">
+            <input class="button" type="submit" value="Sign Up" onclick="return formValidation();">
         </form>
         <script>
             function formValidation(){
