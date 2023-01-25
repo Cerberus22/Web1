@@ -8,8 +8,7 @@
     </head>
     <body class="centered">
         <header><h1>Goals!</h1></header>
-        <form method="post" target="_blank">
-        <form>
+        <form method="post" id="signinForm" onsubmit="return formValidation();">
             <label for="uid">Username:</label><br>
             <input class="formtextfield" type="text" id="uid" name="uid"><br>
 
@@ -48,77 +47,74 @@
             <textarea type="text" id="bio" name="bio"></textarea><br><br>
 
             <button onclick="window.location.href='./index.html';">Back</button>
-            <input class="button" type="submit" value="Sign Up" onclick="window.location.href='./main.html';" onsubmit="return formValidation">
+            <input class="button" type="submit" value="Sign Up">
         </form>
         <script>
             function formValidation(){
-                var userID = document.forms["signinForm"]["userID"].value;
+                var userID = document.getElementById("uid").value;
                 var chara = userID.charAt(0);
-                var charb = userID.charAt(userID.length);
+                var charb = userID.charAt(userID.length-1);
                 var condition1 = userID === "";
 
-                var password = document.forms["signinForm"]["password"].value;
+                var password = document.getElementById("pwd").value;
                 var condition2 = password === "";
 
-                var name = document.forms["signinForm"]["name"].value;
+                var name = document.getElementById("name").value;
                 var nameAlphabet = false;
                 for(let i=0; i<name.length;i++){
                     let currentChar = userID.charAt(i);
-                    if(currentChar !== currentChar.toLowerCase()){
-                    } else if(currentChar !== currentChar.toUpperCase()){
+                    if(currentChar != currentChar.toLowerCase()){
+                    } else if(currentChar != currentChar.toUpperCase()){
                     } else{
                         nameAlphabet = true;
                     }
                 }
+                nameAlphabet = false;
                 var condition3 = name === "";
 
-                var country = document.forms["signinForm"]["country"].value;
+                var country = document.getElementById("country").value;
                 var condition4 = country === "";
 
-                var zip = document.forms["signinForm"]["zip"].value;
+                var zip = document.getElementById("zip").value;
                 var condition5 = zip === "";
                 var zipform = false;
+                for(let i=4; i<6; i++){
+                    let currentChar = zip.charAt(i);
+                    zipform = !(currentChar.toLowerCase() != currentChar.toUpperCase())
+                }
                 for(let i=0; i<4;i++){
-                    let currentChar = userID.charAt(i);
-                    if(currentChar !== currentChar.toLowerCase()){
-                    } else if(currentChar !== currentChar.toUpperCase()){
-                    } else{
-                        zipform = true;
-                    }
+                    let currentChar = zip.charAt(i);
+                    zipform = isNaN(currentChar);
                 }
-                for(let i=4; i<6;i++){
-                    let currentChar = userID.charAt(i);
-                    if(!(isNaN(currentChar*1))){
-                    }  else{
-                        zipform = true;
-                    }
-                }
+                zipform = zipform || zip.length != 6;
 
-                var email = document.forms["signinForm"]["email"].value;
+                var email = document.getElementById("email").value;
                 var condition6 = email === "";
 
-                var sex = document.forms["signinForm"]["sex"].value;
+                var sex = document.getElementById("sex").value;
                 var condition7 = sex === "";
 
-                var lang = document.forms["signinForm"]["lang"].value;
+                var lang = document.getElementById("lang").value;
                 var condition8 = lang === "";
 
-                if(condition1 || condition2 || condition3 || condition3 || condition4 || condition5 || condition6 || condition7 || condition8){
-                    alert("You have not filled out one of the required fields!")
+                if(condition1 || condition2 || condition3 || condition4 || condition5 || condition6 || condition7 || condition8){
+                    alert("You have not filled out one of the required fields!");
                 } else if(chara === chara.toLowerCase()){
-                    alert("Your name must start with a capital letter!")
-                } else if(!(isNaN(charb*1)) || (charb !== charb.toLowerCase() || charb !== charb.toUpperCase())){
-                    alert("Your name must end with a special character!")
-                } else if(5 > userID.length >12) {
-                    alert("Your name must be 5-12 characters long!")
-                } else if(password.length <12) {
-                    alert("Your password must be at least 12 characters long!")
+                    alert("Your username must start with a capital letter!");
+                } else if(charb !== charb.toLowerCase() || charb !== charb.toUpperCase()){
+                    alert("Your username must end with a special character!");
+                } else if(5 > userID.length > 12) {
+                    alert("Your name must be 5-12 characters long!");
+                } else if(password.length < 12) {
+                    alert("Your password must be at least 12 characters long!");
                 } else if(nameAlphabet){
-                    alert("Your name cannot consist of non-alphabetic symbols")
+                    alert("Your name cannot consist of non-alphabetic symbols");
                 } else if(zipform){
-                    alert("Please input correct zip format!")
+                    alert("Please input correct zip format!");
+                } else {
+                // }
+                    window.location.href='./main.html';
                 }
-                
             }
         </script>
     </body>
