@@ -51,6 +51,8 @@
         </form>
         <script>
             function formValidation(){
+
+                
                 var userID = document.getElementById("uid").value;
                 var chara = userID.charAt(0);
                 var charb = userID.charAt(userID.length-1);
@@ -112,8 +114,7 @@
                 } else if(zipform){
                     alert("Please input correct zip format!");
                 } else {
-                // }
-                    window.location.href='./main.html';
+                    location.href='./index.html';
                 }
             }
         </script>
